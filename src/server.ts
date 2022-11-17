@@ -15,6 +15,7 @@ const argv = yargs.argv as unknown as {
     $0: string;
 };
 let command = argv._[0];
+console.log('Server is Running!');
 console.log('Running Command is :', command);
 switch (command) {
     case 'createTask': {
@@ -40,6 +41,4 @@ switch (command) {
     default: {
         Options();
     }
-}
-
-console.log('Server is Running!');
+};

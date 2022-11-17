@@ -3,15 +3,12 @@ import { listTasks } from "../List";
 
 
 const showTask = ( title: string) => {
-    console.log('title', title)
     const tasks =  listTasks();
-    console.log('tasks', tasks)
     const selectedTask = tasks.find(task => task.title === title);
     if (!selectedTask) {
         console.log('We can not found a task with this title');
     }
-    console.log(`Your Task is: ${title}`);
-    return selectedTask;
+    console.log(`Your Task is: ${selectedTask.title}`);
 };
 
 export { showTask };
