@@ -1,11 +1,12 @@
 import fs from 'fs';
+import { Task } from '../../entities/Task';
 import { listTasks } from "../List";
 
-const CreateTask =  (title: any ) => {
+const CreateTask = (title: string): Task => {
     console.log('title', title)
-    const allTasks =  listTasks();
-    const newTask = {title: title}
-    const taskAlreadyExists = allTasks.filter(task => task.title === newTask.title)
+    const allTasks: Task[] = listTasks();
+    const newTask = new Task(title);
+    const taskAlreadyExists = allTasks.filter((task: Task) => task.title === newTask.title)
     console.log('taskAlreadyExists', taskAlreadyExists)
     console.log('allTasks', allTasks)
     if (taskAlreadyExists.length === 0) {

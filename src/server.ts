@@ -1,6 +1,7 @@
 import _ from 'lodash';
 
 import yargs from 'yargs';
+import { completeTask } from './Task/services/Complete';
 import { CreateTask } from './Task/services/Create';
 import { deleteTask } from './Task/services/Delete';
 import { listTasks } from './Task/services/List';
@@ -17,11 +18,11 @@ let command = argv._[0];
 console.log('Running Command is :', command);
 switch (command) {
     case 'createTask': {
-        CreateTask( argv.title );
+        CreateTask(argv.title as string);
         break;
     };
     case 'deleteTask': {
-        deleteTask(argv.title);
+        deleteTask(argv.title as string);
         break;
     };
     case 'listTask': {
@@ -29,9 +30,13 @@ switch (command) {
         break;
     };
     case 'showTask': {
-        showTask(argv.title as unknown as string)
+        showTask(argv.title as string)
         break;
     };
+    case 'completeTask': {
+        completeTask(argv.title as string)
+        break;
+    }
     default: {
         Options();
     }
