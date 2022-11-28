@@ -7,7 +7,8 @@ import { deleteTask } from './Task/services/Delete';
 import { listTasks } from './Task/services/List';
 import { Options } from './Task/services/Options';
 import { showTask } from './Task/services/Show';
-
+import { addSeconds } from 'date-fns';
+import { expire } from './Task/jobs/ExpireTaskOverDeadlineJob';
 
 const argv = yargs.argv as unknown as {
     [x: string]: unknown;
@@ -41,4 +42,7 @@ switch (command) {
     default: {
         Options();
     }
+    setTimeout(() => {
+        expire()
+    }, 0)
 };
