@@ -2,3 +2,4 @@ node_modules
 dist
 tasks-data.json
 completedTasks-data.json
+expiredTasks-data.json
